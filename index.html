@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arvindra Rajput | Cheetah Scrollytelling</title>
+  <meta name="description" content="A cinematic cheetah scrollytelling experience by Arvindra Rajput, rendered from local JPG frames.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">Arvindra Rajput</p>
+    <h1>Scroll to drive the run.</h1>
+    <p class="hero-copy">
+      A premium scrollytelling sequence by <strong>Arvindra Rajput</strong>, built directly from the JPG frames inside your local
+      <strong>Images</strong> folder.
+    </p>
+    <a class="hero-link" href="#story">Enter the sequence</a>
+  </header>
+
+  <main>
+    <section class="scrollytelling" id="story">
+      <div class="sticky-stage">
+        <img
+          id="sequence-image"
+          class="sequence-image"
+          src="Images/ezgif-frame-001.jpg"
+          alt="Cheetah running across the savannah"
+        >
+        <div class="media-scrim"></div>
+        <div class="media-highlight"></div>
+
+        <div class="stage-top">
+          <span class="brand">ARVINDRA RAJPUT</span>
+          <span class="frame-readout">Frame <strong id="frame-readout">001</strong> / 240</span>
+        </div>
+
+        <div class="story-overlay" aria-live="polite">
+          <p class="story-line is-active">Born to outrun time itself.</p>
+          <p class="story-line">Every stride is precision.</p>
+          <p class="story-line">Speed is survival.</p>
+          <p class="story-line">Blink &mdash; and it&rsquo;s gone.</p>
+          <p class="story-line">Not chasing&hellip; executing.</p>
+        </div>
+
+        <div class="progress-rail" aria-hidden="true">
+          <span class="progress-fill" id="progress-fill"></span>
+        </div>
+
+        <div class="status-pill" id="status-pill">Loading local JPG frames&hellip;</div>
+
+        <div class="step-markers" aria-hidden="true">
+          <span class="step-marker is-active"></span>
+          <span class="step-marker"></span>
+          <span class="step-marker"></span>
+          <span class="step-marker"></span>
+          <span class="step-marker"></span>
+        </div>
+      </div>
+
+      <div class="story-track">
+        <article class="story-step"><span>Born to outrun time itself.</span></article>
+        <article class="story-step"><span>Every stride is precision.</span></article>
+        <article class="story-step"><span>Speed is survival.</span></article>
+        <article class="story-step"><span>Blink and it is gone.</span></article>
+        <article class="story-step"><span>Not chasing, executing.</span></article>
+      </div>
+    </section>
+
+    <section class="outro">
+      <p class="eyebrow">Arvindra Rajput</p>
+      <h2>Pure speed. Pure instinct.</h2>
+      <p class="outro-copy">
+        The full sequence is rendered from local JPG files and synchronized to scroll for a clean,
+        immersive storytelling experience across desktop and mobile, designed under the
+        <strong>Arvindra Rajput</strong> brand.
+      </p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

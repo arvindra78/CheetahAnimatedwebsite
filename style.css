@@ -1,0 +1,324 @@
+:root {
+  --bg: #050505;
+  --line: rgba(255, 255, 255, 0.12);
+  --text: #f7f2e7;
+  --muted: rgba(247, 242, 231, 0.72);
+  --accent: #d5b37e;
+  --shadow: rgba(0, 0, 0, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(213, 179, 126, 0.08), transparent 30%),
+    linear-gradient(180deg, #080808 0%, #030303 100%);
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.hero,
+.outro {
+  min-height: 100svh;
+  display: grid;
+  align-content: center;
+  gap: 1.1rem;
+  padding: clamp(28px, 6vw, 88px);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.outro h2 {
+  margin: 0;
+  max-width: 10ch;
+  font-size: clamp(3.1rem, 9vw, 8rem);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+}
+
+.hero-copy,
+.outro-copy {
+  margin: 0;
+  max-width: 42rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.75;
+}
+
+.hero-link {
+  width: fit-content;
+  margin-top: 0.8rem;
+  padding: 0.95rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.hero-link:hover,
+.hero-link:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.scrollytelling {
+  position: relative;
+  min-height: 640svh;
+}
+
+.sticky-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  background: #000;
+}
+
+.sequence-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.98) contrast(1.05) brightness(0.96);
+  transform: scale(1.01);
+}
+
+.media-scrim,
+.media-highlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.media-scrim {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 24%, transparent 76%, rgba(0, 0, 0, 0.82)),
+    radial-gradient(circle at center, transparent 38%, rgba(0, 0, 0, 0.46) 100%);
+}
+
+.media-highlight {
+  background:
+    radial-gradient(circle at 56% 48%, rgba(255, 227, 178, 0.12), transparent 26%),
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.04), transparent);
+  mix-blend-mode: screen;
+}
+
+.stage-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: clamp(18px, 3vw, 30px);
+  z-index: 3;
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.frame-readout {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.story-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: clamp(20px, 4vw, 44px);
+  z-index: 3;
+  pointer-events: none;
+  text-align: center;
+}
+
+.story-line {
+  position: absolute;
+  width: min(78vw, 980px);
+  margin: 0;
+  font-size: clamp(1.9rem, 5vw, 5.4rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+  text-shadow: 0 18px 52px var(--shadow);
+  opacity: 0;
+  transform: translate3d(0, 34px, 0) scale(0.985);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.story-line.is-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.progress-rail {
+  position: absolute;
+  top: 50%;
+  right: clamp(16px, 3vw, 28px);
+  width: 2px;
+  height: min(36vh, 320px);
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.progress-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #fff2d2 0%, #d5b37e 100%);
+  transform-origin: top center;
+  transform: scaleY(0.02);
+}
+
+.status-pill {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(18px, 4vw, 28px);
+  transform: translateX(-50%);
+  z-index: 3;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.86);
+  background: rgba(0, 0, 0, 0.46);
+  backdrop-filter: blur(12px);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.status-pill.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.step-markers {
+  position: absolute;
+  left: clamp(18px, 3vw, 28px);
+  bottom: clamp(18px, 3vw, 28px);
+  z-index: 3;
+  display: flex;
+  gap: 0.55rem;
+}
+
+.step-marker {
+  width: 38px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.step-marker.is-active {
+  background: var(--accent);
+  transform: scaleX(1.08);
+}
+
+.story-track {
+  position: relative;
+  z-index: 1;
+}
+
+.story-step {
+  height: 108svh;
+}
+
+.story-step span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.outro {
+  min-height: 80svh;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 900px) {
+  .scrollytelling {
+    min-height: 560svh;
+  }
+
+  .story-line {
+    width: min(88vw, 680px);
+    font-size: clamp(1.7rem, 8vw, 3.6rem);
+  }
+
+  .progress-rail {
+    right: 14px;
+    height: 24vh;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero h1,
+  .outro h2 {
+    max-width: 12ch;
+  }
+
+  .stage-top {
+    font-size: 0.68rem;
+    gap: 12px;
+  }
+
+  .progress-rail {
+    top: auto;
+    bottom: 90px;
+    transform: none;
+    height: 18vh;
+  }
+
+  .step-marker {
+    width: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
